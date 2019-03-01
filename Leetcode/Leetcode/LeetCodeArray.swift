@@ -64,4 +64,18 @@ class LeetCodeArray: NSObject {
         }
         return i + 1
     }
+    //80 T: O(n), S: O(1)
+    func removeDuplicatesII(_ nums: inout [Int]) -> Int {
+        if nums.count == 0 {return 0}
+
+        var i = 0
+        for n in nums {
+            if i < 2 || n > nums[i-2] {
+                nums[i] = n
+                i += 1
+            }
+        }
+        return i
+    }
+    
 }
