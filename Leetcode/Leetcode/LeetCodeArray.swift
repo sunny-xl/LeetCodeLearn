@@ -77,5 +77,32 @@ class LeetCodeArray: NSObject {
         }
         return i
     }
-    
+
+    /* 189 真是妙啊
+     The basic idea is that, for example, nums = [1,2,3,4,5,6,7] and k = 3, first we reverse [1,2,3,4], it becomes[4,3,2,1]; then we reverse[5,6,7], it becomes[7,6,5], finally we reverse the array as a whole, it becomes[4,3,2,1,7,6,5] ---> [5,6,7,1,2,3,4].
+
+     Reverse is done by using two pointers, one point at the head and the other point at the tail, after switch these two, these two pointers move one position towards the middle.
+     */
+    func rotate(_ nums: inout [Int], _ k: Int) {
+        if nums.count <= 1 {return }
+
+        let i = k % nums.count
+        reverse(&nums,0,nums.count-1-i)
+        reverse(&nums,nums.count-i,nums.count-1)
+        reverse(&nums,0,nums.count-1)
+
+    }
+
+    private func reverse(_ nums: inout [Int], _ i: Int, _ j: Int) {
+        var temp = 0
+        var start = i
+        var end = j
+        while start < end {
+            temp = nums[start]
+            nums[start] = nums[end]
+            nums[end] = temp
+            start += 1
+            end -= 1
+        }
+    }
 }
