@@ -78,7 +78,7 @@ class LeetCodeArray: NSObject {
         return i
     }
 
-    /* 189 真是妙啊
+    /* 189  T: O(n), S: O(1)
      The basic idea is that, for example, nums = [1,2,3,4,5,6,7] and k = 3, first we reverse [1,2,3,4], it becomes[4,3,2,1]; then we reverse[5,6,7], it becomes[7,6,5], finally we reverse the array as a whole, it becomes[4,3,2,1,7,6,5] ---> [5,6,7,1,2,3,4].
 
      Reverse is done by using two pointers, one point at the head and the other point at the tail, after switch these two, these two pointers move one position towards the middle.
@@ -104,5 +104,25 @@ class LeetCodeArray: NSObject {
             start += 1
             end -= 1
         }
+    }
+
+    //41 T: O(n), S: O(1)
+    func firstMissingPositive(_ nums: [Int]) -> Int {
+        var arr = nums
+        let n = arr.count
+        for i in 0..<n {
+            while (arr[i] > 0 && arr[i] <= n && arr[arr[i] - 1] != arr[i]) {
+                let temp = arr[i]
+                arr[i] = arr[arr[i]-1]
+                arr[temp-1] = temp
+            }
+        }
+
+        for i in 0..<n {
+            if arr[i] != i + 1 {
+                return i + 1
+            }
+        }
+        return n + 1
     }
 }

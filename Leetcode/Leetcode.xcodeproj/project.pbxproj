@@ -24,6 +24,7 @@
 		A390D6002209C80100185C3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A390D6022209C80100185C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3A5D7152229797100B2E432 /* LeetCodeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCodeArray.swift; sourceTree = "<group>"; };
+		A3F9BB69224116B200862F03 /* CodeOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeOrder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		A390D5F52209C80000185C3D /* Leetcode */ = {
 			isa = PBXGroup;
 			children = (
+				A3F9BB69224116B200862F03 /* CodeOrder.h */,
 				A390D5F62209C80000185C3D /* AppDelegate.swift */,
 				A390D5F82209C80000185C3D /* ViewController.swift */,
 				A3A5D7152229797100B2E432 /* LeetCodeArray.swift */,
