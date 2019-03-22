@@ -125,4 +125,30 @@ class LeetCodeArray: NSObject {
         }
         return n + 1
     }
+
+    //299、这个是discuss中的hot思路，真的是充满了智慧，尤其体现在处理cows的地方。创建了一个长度为10的int数组，因为每个位置的数字范围就是0——9，数组的index就对应0——9，而index对应的元素值表示secret中该index出现的次数。如果secret出现一次某个数字，该位置就自增1，如果此时该位置小于0，就说明这个数字在guess出现过，因此cows就自增1；guess的处理和secret类似，区别就是index对应元素需要自减。
+
+    func getHint(_ secret: String, _ guess: String) -> String {
+        guard secret.count == guess.count else {
+            return ""
+        }
+        var bulls = 0
+        var cows = 0
+        var numbers = [0,0,0,0,0,0,0,0,0,0]
+        for i in 0..<secret.count {
+            let sIndex = secret.index(secret.startIndex, offsetBy: i)
+            let gIndex = guess.index(guess.startIndex, offsetBy: i)
+            let s =  String.init(secret[sIndex])
+            let g =  String.init(guess[gIndex])
+            if  s == g {
+                bulls += 1
+            } else {
+                if numbers[Int(s)!] < 0 {cows += 1}
+                if numbers[Int(g)!] > 0 {cows += 1}
+                numbers[Int(s)!] += 1
+                numbers[Int(g)!] -= 1
+            }
+        }
+        return "\(bulls)A\(cows)B"
+    }
 }
