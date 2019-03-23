@@ -151,4 +151,20 @@ class LeetCodeArray: NSObject {
         }
         return "\(bulls)A\(cows)B"
     }
+
+    //134 If the total number of gas is bigger than the total number of cost. There must be a solution.
+    func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {
+        var remain = 0
+        var start = 0
+        var debt = 0
+        for i in 0..<gas.count {
+            remain = remain + gas[i] - cost[i]
+            if remain < 0 {
+                debt += remain
+                start = i + 1
+                remain = 0
+            }
+        }
+        return remain + debt < 0 ? -1 : start
+    }
 }
