@@ -1,5 +1,5 @@
 
-# *.js linguist-language=swift
-# *.css linguist-language=swift
-# *.html linguist-language=swift
+*.js linguist-language=swift
+*.css linguist-language=swift
+*.html linguist-language=swift
 *.swift linguist-language=Swift
